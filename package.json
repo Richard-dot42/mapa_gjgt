@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "edupage-api": "^0.8.3",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0"
   }
 }
