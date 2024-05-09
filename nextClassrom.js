@@ -6,12 +6,12 @@ const { Edupage } = require("edupage-api");
 
 const app = express();
 
-app.set('trust proxy', true);
-
-// Apply rate limiting middleware
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 50, // limit each IP to 50 requests per windowMs
+    keyGenerator: function (req /*, res*/) {
+        return req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    },
     message: "Too many requests from this IP, please try again later"
 });
 app.use(limiter);
