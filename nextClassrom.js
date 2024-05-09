@@ -2,7 +2,11 @@ const express = require("express");
 const rateLimit = require("express-rate-limit");
 const { Edupage } = require("edupage-api");
 
+
+
 const app = express();
+
+app.set('trust proxy', true);
 
 // Apply rate limiting middleware
 const limiter = rateLimit({
