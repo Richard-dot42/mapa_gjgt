@@ -7,7 +7,7 @@ const app = express();
 
 // Set up CORS
 app.use(cors({
-    origin: 'https://richard-dot42.github.io/mapagjgt/', // Replace with your web app’s domain
+    origin: 'https://richard-dot42.github.io', // Replace with your web app’s domain
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type,Authorization'
 }));
