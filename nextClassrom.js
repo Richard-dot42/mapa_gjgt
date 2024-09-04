@@ -1,11 +1,18 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
+const cors = require("cors");
 const { Edupage } = require("edupage-api");
-
-
 
 const app = express();
 
+// Set up CORS
+app.use(cors({
+    origin: 'https://richard-dot42.github.io/mapagjgt/', // Replace with your web app’s domain
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization'
+}));
+
+// Rate limiting middleware
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 50, // limit each IP to 50 requests per windowMs
